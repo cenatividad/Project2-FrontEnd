@@ -1,3 +1,17 @@
-<p>
-  signup works!
-</p>
+<form>
+    <div>
+      <label for="signup-username">Username</label>
+      <input id="signup-username" type="text" [(ngModel)]="username" name="username">
+      <label for="signup-password">Password</label>
+      <input id="signup-password" type="password" [(ngModel)]="password" name="password">
+      <label for="signup-password-verify">Re-enter Password</label>
+      <input id="signup-password-verify" type="password" [(ngModel)]="passwordVerification" name="passwordVerification">
+      <label for="signup-email">Email Address</label>
+      <input id="signup-email" type="text" [(ngModel)]="email" name="email">
+      <label for="signup-first-name">First Name</label>
+      <input id="signup-first-name" type="text" [(ngModel)]="firstName" name="first-name">
+      <label for="signup-last-name">Last Name</label>
+      <input id="signup-last-name" type="text" [(ngModel)]="lastName" name="last-name">
+      <button class="btn btn-primary" (click)="signup()">Signup</button>
+    </div> 
+  </form>
