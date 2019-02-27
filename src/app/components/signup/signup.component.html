@@ -13,6 +13,6 @@
       <input id="signup-first-name" type="text" [(ngModel)]="firstName" name="first-name">
       <label for="signup-last-name">Last Name</label>
       <input id="signup-last-name" type="text" [(ngModel)]="lastName" name="last-name">
-      <button class="btn btn-primary" (click)="signup()">Signup</button>
+      <button class="btn btn-primary" (click)="signup()" [disabled]="!checkInputs()">Signup</button>
     </div> 
   </form>
