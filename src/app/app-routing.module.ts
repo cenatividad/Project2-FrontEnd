@@ -4,6 +4,9 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { MainComponent } from './components/main/main.component';
 import { SignupLoginComponent } from './components/signup-login/signup-login.component';
+import { UserProjectsComponent } from './components/user-projects/user-projects.component';
+import { NewProjectComponent } from './components/new-project/new-project.component';
+import { ViewInvitationsComponent } from './components/view-invitations/view-invitations.component';
 
 const routes: Routes = [
   {
@@ -12,7 +15,19 @@ const routes: Routes = [
   },
   {
     path: 'main',
-    component: MainComponent
+    component: MainComponent,
+    children: [
+      {
+        path: 'user-projects',
+        component: UserProjectsComponent
+      }, {
+        path: 'new-project',
+        component: NewProjectComponent
+      }, {
+        path: 'view-invitations',
+        component: ViewInvitationsComponent
+      }
+    ]
   }
 ];
 

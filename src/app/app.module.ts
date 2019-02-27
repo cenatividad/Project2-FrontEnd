@@ -12,6 +12,9 @@ import { SignupService } from './services/signup.service';
 import { SessionService } from './services/sessions.service';
 import { FormsModule } from '@angular/forms';
 import { SignupLoginComponent } from './components/signup-login/signup-login.component';
+import { UserProjectsComponent } from './components/user-projects/user-projects.component';
+import { NewProjectComponent } from './components/new-project/new-project.component';
+import { ViewInvitationsComponent } from './components/view-invitations/view-invitations.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { SignupLoginComponent } from './components/signup-login/signup-login.com
     LoginComponent,
     MainComponent,
     SignupComponent,
-    SignupLoginComponent
+    SignupLoginComponent,
+    UserProjectsComponent,
+    NewProjectComponent,
+    ViewInvitationsComponent
   ],
   imports: [
     BrowserModule,
