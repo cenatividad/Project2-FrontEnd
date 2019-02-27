@@ -1,11 +1,15 @@
 <nav>
-  <ul id="class-options">
-    <li routerLink="/main/user-projects">View Projects</li>
-    <li routerLink="/main/new-project">Create Project</li>
-    <li routerLink="/main/view-invitations">Invitations</li>
-    <li id="log-out-button" (click)="logout()">Log out</li>
+  <ul id="nav-options">
+    <li class="nav-bar-option" routerLink="/main/user-projects">View Projects</li>
+    <li class="nav-bar-option" routerLink="/main/new-project">Create Project</li>
+    <li class="nav-bar-option" routerLink="/main/view-invitations">Invitations</li>
+    <li class="nav-bar-option" id="log-out-button" (click)="logout()">Log out</li>
   </ul>
 </nav>
-<ul<p>
-  main works!
-</p>
+<ul class="sidebar">
+  <li class="sidebar-header">Active Projects</li>
+  <ul class="sidebar-list-wrapper">
+    <li class="sidebar-item" *ngFor="let item of projects" (click)="projectLink(item.id)">{{item.title}}</li>
+  </ul>
+</ul>
+<router-outlet></router-outlet>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-main',
@@ -7,12 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  projects = [];
+  
+  constructor(private router: Router, private cookieService: CookieService) { }
 
-  logout() {
-    
-  }
+
   ngOnInit() {
   }
 
+  logout() {
+    this.cookieService.deleteAll(); //safer to do field by field
+    this.router.navigateByUrl('/login');
+  }
+
+  routerLink(id: number) {
+    this.router.navigateByUrl(`/main/project/${id}`);
+  }
 }
