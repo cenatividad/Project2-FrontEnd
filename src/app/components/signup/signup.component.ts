@@ -23,18 +23,21 @@ export class SignupComponent implements OnInit {
   /**
    * Calls the service to register new user with provided credentials
    */
-  signup(){
-    if(!this.signupService.checkPasswords(this.password, this.passwordVerification)){
-      console.log("Signup Component: password mismatch");
-    } else {
-      const user: User = new User();
-      user.username = this.username;
-      user.password = this.password;
-      user.email = this.email;
-      user.firstName = this.firstName;
-      user.lastName = this.lastName;
-  
-      this.signupService.signup(user);
-    }
+  signup() {
+    const user: User = new User();
+    user.username = this.username;
+    user.password = this.password;
+    user.email = this.email;
+    user.firstName = this.firstName;
+    user.lastName = this.lastName;
+
+    this.signupService.signup(user);
+
+  }
+
+  // Checks that the inputs are in valid formats, submit button will be disabled if they're not.
+  checkInputs() {
+    return this.signupService.checkInput(this.username, this.password, this.passwordVerification, this.email,
+      this.firstName, this.lastName);
   }
 }
