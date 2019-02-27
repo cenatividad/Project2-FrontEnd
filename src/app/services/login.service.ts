@@ -10,6 +10,8 @@ export class LoginService {
   constructor(private sessionService: SessionService) { }
 
 
+  // Performs the login service. Requests the server for authentication and proceeds with logic based on success
+  // or failure.
   doLogin(username: string, password: string){
     // We do the checking stuff here
     console.log(username + " " + password);
@@ -29,6 +31,7 @@ export class LoginService {
     }
   }
 
+  // Verifies that the passed inputs are correct in some way.
   checkInput(username: string, password: string): boolean{
     // Do Logic
     return true;

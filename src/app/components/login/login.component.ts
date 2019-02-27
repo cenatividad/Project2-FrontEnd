@@ -15,10 +15,16 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * Calls the login service to validate user
+   */
   login(){
     this.loginService.doLogin(this.username, this.password);
   }
 
+  /**
+   * Checks that the input is valid, form will disable login button if they are not
+   */
   checkInput(): boolean{
     return this.loginService.checkInput(this.username, this.password);
   }

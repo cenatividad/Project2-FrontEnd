@@ -20,6 +20,9 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * Calls the service to register new user with provided credentials
+   */
   signup(){
     if(!this.signupService.checkPasswords(this.password, this.passwordVerification)){
       console.log("Signup Component: password mismatch");

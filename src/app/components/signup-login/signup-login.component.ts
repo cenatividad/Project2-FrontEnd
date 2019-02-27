@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+// This is a wrapper component for both the login and signup componets
 @Component({
   selector: 'app-signup-login',
   templateUrl: './signup-login.component.html',

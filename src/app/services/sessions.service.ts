@@ -15,11 +15,14 @@ export class SessionService {
     this.activeUser = user;
   }
 
+  // basic get for active user
   getActiveUser(): User{
     return this.activeUser;
   }
 
+  // nullifies the current activeUser to prevent potential conflict
   logout(){
+    //TODO server-side invalidation as well.
     this.activeUser = null;
   }
 }

@@ -1,3 +1,4 @@
+// Holds user information
 export class User {
     id: number;
     email: string;

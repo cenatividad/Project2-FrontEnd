@@ -8,7 +8,7 @@ export class SignupService {
 
   constructor() { }
 
-  // Change it to return an observable and have the component subscribe to it.
+  // Change the user, return an observable and have the component subscribe to it.
   signup(user: User): boolean{
     // send stuff to server, it returns an observable
     console.log('SignupService: signed up user:');
@@ -16,6 +16,7 @@ export class SignupService {
     return true;
   }
 
+  // Verifies that the passwords match.
   checkPasswords(password: string, passwordVerification: string): boolean{
     return password === passwordVerification;
   }
