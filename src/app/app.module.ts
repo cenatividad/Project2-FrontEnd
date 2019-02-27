@@ -11,13 +11,15 @@ import { LoginService } from './services/login.service';
 import { SignupService } from './services/signup.service';
 import { SessionService } from './services/sessions.service';
 import { FormsModule } from '@angular/forms';
+import { SignupLoginComponent } from './components/signup-login/signup-login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     MainComponent,
-    SignupComponent
+    SignupComponent,
+    SignupLoginComponent
   ],
   imports: [
     BrowserModule,
