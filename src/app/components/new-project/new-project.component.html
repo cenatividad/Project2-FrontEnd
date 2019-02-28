@@ -1,3 +1,7 @@
-<p>
-  new-project works!
-</p>
+<div class="input-form">
+  <title for="projectName">Project Name</title>
+  <input id="projectName" type="text" [(ngModel)]="projectName">
+  <title for="description">Description</title>
+  <input id="description" type="text" [(ngModel)]="description">
+  <button (click)="newProject()">Create!</button>
+</div>
