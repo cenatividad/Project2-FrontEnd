@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
 import { SessionService } from './sessions.service';
 import { User } from '../models/user';
+import { NavigationService } from './navigation.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  constructor(private sessionService: SessionService) { }
+  constructor(private sessionService: SessionService, private navigationService: NavigationService) { }
 
 
   // Performs the login service. Requests the server for authentication and proceeds with logic based on success
   // or failure.
-  doLogin(username: string, password: string){
+  doLogin(username: string, password: string) {
     // We do the checking stuff here
     console.log(username + " " + password);
 
@@ -22,8 +23,10 @@ export class LoginService {
     this.sessionService.setActiveUser(user);
 
     //routing
-    if(this.sessionService.getActiveUser()){
+    if (this.sessionService.getActiveUser()) {
       console.log("login service, login success");
+      this.navigationService.navToMain();
+
       // LOGIN SUCCESS: do stuff
     } else {
       console.log("login service, login fail");
@@ -32,25 +35,25 @@ export class LoginService {
   }
 
   // Checks username for not being null/undefined or empty
-  usernameOK(username: string): boolean{
-    if(username && username !== ''){
+  usernameOK(username: string): boolean {
+    if (username && username !== '') {
       return true;
-    } else{
+    } else {
       return false;
     }
   }
 
   // Checks password for not being null/undefined or empty
-  passwordOK(password: string): boolean{
-    if(password && password !== ''){
+  passwordOK(password: string): boolean {
+    if (password && password !== '') {
       return true;
-    } else{
+    } else {
       return false;
     }
   }
 
   // Verifies that the passed inputs are correct in some way.
-  checkInput(username: string, password: string): boolean{
-    return(this.usernameOK(username) && this.passwordOK(password));
+  checkInput(username: string, password: string): boolean {
+    return (this.usernameOK(username) && this.passwordOK(password));
   }
 }
