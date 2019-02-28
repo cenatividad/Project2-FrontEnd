@@ -15,8 +15,8 @@ import { SignupLoginComponent } from './components/signup-login/signup-login.com
 import { UserProjectsComponent } from './components/user-projects/user-projects.component';
 import { NewProjectComponent } from './components/new-project/new-project.component';
 import { ViewInvitationsComponent } from './components/view-invitations/view-invitations.component';
-import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,9 +33,10 @@ import { CookieService } from 'ngx-cookie-service';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [LoginService, SignupService, SessionService, CookieService, Router],
+  providers: [LoginService, SignupService, SessionService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

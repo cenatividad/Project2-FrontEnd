@@ -19,7 +19,7 @@ export class MainComponent implements OnInit {
 
   logout() {
     this.cookieService.deleteAll(); //safer to do field by field
-    this.router.navigateByUrl('/login');
+    this.router.navigateByUrl('');
   }
 
   routerLink(id: number) {
