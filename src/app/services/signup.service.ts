@@ -1,26 +1,29 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SignupService {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
+  signupURI: string = 'users';
 
   // Change the user, return an observable and have the component subscribe to it.
-  signup(user: User): boolean{
-    // send stuff to server, it returns an observable
-    console.log('SignupService: signed up user:');
-    console.log(user);
-    return true;
+  signup(user: User): Observable<Object>{
+    // send stuff to server, it returns an observable  
+    console.log("Signup Service: Signing up " + user);
+    const obs = this.httpClient.post<User>(environment.APIbase + this.signupURI, user);
+    return obs;
   }
 
   // Verifies that the passwords match.
   checkPasswords(password: string, passwordVerification: string): boolean{
     return password === passwordVerification;
   }
-
 
   // Checks username for not being null/undefined or empty
   usernameOK(username: string): boolean{
