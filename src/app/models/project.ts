@@ -6,5 +6,5 @@ export class Project {
     stories: Array<Story>;
     projectName: string;
     description: string;
-    projectUsers: Array<User>;
+    projectUsers: Array<User> = [];
 }

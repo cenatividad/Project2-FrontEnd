@@ -17,6 +17,7 @@ import { NewProjectComponent } from './components/new-project/new-project.compon
 import { ViewInvitationsComponent } from './components/view-invitations/view-invitations.component';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClientModule } from '@angular/common/http';
+import { ProjectService } from './services/project.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [LoginService, SignupService, SessionService, CookieService],
+  providers: [LoginService, SignupService, SessionService, CookieService, ProjectService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

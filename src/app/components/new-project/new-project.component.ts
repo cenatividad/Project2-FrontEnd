@@ -10,6 +10,7 @@ import { Project } from 'src/app/models/project';
 })
 export class NewProjectComponent implements OnInit {
 
+  project = new Project;
   projectName = '';
   description = '';
   user = this.sessionService.getActiveUser();
@@ -21,11 +22,10 @@ export class NewProjectComponent implements OnInit {
   }
 
   newProject() {
-    let project: Project;
-    project.projectName = this.projectName;
-    project.description = this.description;
-    project.projectUsers.push(this.user);
-    this.user.projects.push(project);
-    this.projectService.createProject();
+    this.project.projectName = this.projectName;
+    this.project.description = this.description;
+    this.project.projectUsers.push(this.user);
+
+    this.projectService.createProject(this.project);
   }
 }
