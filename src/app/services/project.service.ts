@@ -12,7 +12,7 @@ export class ProjectService {
   constructor(private httpClient: HttpClient) { }
 
   createProject(project: Project): Observable<any> {
-    const url = `${environment.apiUrl}/project/create`;
+    const url = `${environment.APIbase}/project/create`;
     return this.httpClient.post(url, project);
   }
   
