@@ -1,3 +1,5 @@
+import { Project } from './project';
+
 // Holds user information
 export class User {
     id: number;
@@ -6,4 +8,5 @@ export class User {
     firstName: string;
     lastName: string;
     password: string;
+    projects: Array<Project>;
 }

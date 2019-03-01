@@ -17,7 +17,7 @@ export class SignupService {
   }
 
   // Verifies that the passwords match.
-  checkPasswords(password: string, passwordVerification: string): boolean{
+  checkPasswords(password: string, passwordVerification: string): boolean {
     return password === passwordVerification;
   }
 

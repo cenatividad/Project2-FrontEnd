@@ -26,6 +26,8 @@ const routes: Routes = [
       }, {
         path: 'view-invitations',
         component: ViewInvitationsComponent
+      // }, {
+      //   path: `project/${project.projectID}`
       }
     ]
   }

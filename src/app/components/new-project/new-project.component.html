@@ -1,3 +1,8 @@
-<p>
-  new-project works!
-</p>
+<div class="input-form">
+  <h2 *ngIf="creationFailure" class="error-message">Project creation failed</h2>
+  <label for="projectName">Project Name</label>
+  <input id="projectName" type="text" [(ngModel)]="projectName">
+  <label for="description">Description</label>
+  <input id="description" type="text" [(ngModel)]="description">
+  <button (click)="newProject()">Create!</button>
+</div>

@@ -18,6 +18,8 @@ import { ViewInvitationsComponent } from './components/view-invitations/view-inv
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClientModule } from '@angular/common/http';
 import { NavigationService } from './services/navigation.service';
+import { ProjectService } from './services/project.service';
+import { ProjectComponent } from './components/project/project.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { NavigationService } from './services/navigation.service';
     SignupLoginComponent,
     UserProjectsComponent,
     NewProjectComponent,
-    ViewInvitationsComponent
+    ViewInvitationsComponent,
+    ProjectComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,7 @@ import { NavigationService } from './services/navigation.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [LoginService, SignupService, SessionService, CookieService, NavigationService],
+  providers: [LoginService, SignupService, SessionService, CookieService, NavigationService, ProjectService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
