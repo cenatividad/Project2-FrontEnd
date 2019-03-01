@@ -11,4 +11,8 @@ export class NavigationService {
   navToMain(){
     this.router.navigateByUrl('/main');
   }
+
+  navToLogin(){
+    this.router.navigateByUrl('');
+  }
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
+import { SessionService } from 'src/app/services/sessions.service';
+import { NavigationService } from 'src/app/services/navigation.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +12,8 @@ export class LoginComponent implements OnInit {
   username: string;
   password: string;
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private sessionService: SessionService,
+              private navigationService: NavigationService) { }
 
   ngOnInit() {
   }
@@ -19,7 +22,12 @@ export class LoginComponent implements OnInit {
    * Calls the login service to validate user
    */
   login(){
-    this.loginService.doLogin(this.username, this.password);
+    this.loginService.doLogin(this.username, this.password).subscribe((payload)=>{
+      this.sessionService.setActiveUser(payload);
+      this.navigationService.navToMain();
+    }, (error) => {
+      console.log("LoginComponent: Login failed");
+    });
   }
 
   /**
