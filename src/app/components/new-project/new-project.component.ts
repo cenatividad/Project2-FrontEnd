@@ -3,6 +3,7 @@ import { ProjectService } from 'src/app/services/project.service';
 import { SessionService } from 'src/app/services/sessions.service';
 import { Project } from 'src/app/models/project';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-new-project',
@@ -18,7 +19,10 @@ export class NewProjectComponent implements OnInit {
 
   creationFailure = false;
 
-  constructor(private projectService: ProjectService, private sessionService: SessionService, private router: Router) { }
+  constructor(private projectService: ProjectService,
+              private sessionService: SessionService,
+              private router: Router,
+              private cookieService: CookieService) { }
 
   ngOnInit() {
 
@@ -31,7 +35,8 @@ export class NewProjectComponent implements OnInit {
 
     this.projectService.createProject(this.project).subscribe( (payload: Project) => {
       console.log(payload);
-      this.router.navigateByUrl(`/main/user-projects`);
+      this.cookieService.set('projectID', payload.projectID.toString());
+      this.router.navigateByUrl(`/main/project`);
     }, (err) => {
       console.log(err);
       this.creationFailure = true;

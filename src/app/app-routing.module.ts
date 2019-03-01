@@ -7,6 +7,7 @@ import { SignupLoginComponent } from './components/signup-login/signup-login.com
 import { UserProjectsComponent } from './components/user-projects/user-projects.component';
 import { NewProjectComponent } from './components/new-project/new-project.component';
 import { ViewInvitationsComponent } from './components/view-invitations/view-invitations.component';
+import { ProjectComponent } from './components/project/project.component'
 
 const routes: Routes = [
   {
@@ -26,8 +27,9 @@ const routes: Routes = [
       }, {
         path: 'view-invitations',
         component: ViewInvitationsComponent
-      // }, {
-      //   path: `project/${project.projectID}`
+       }, {
+        path: `project`,
+        component: ProjectComponent
       }
     ]
   }
