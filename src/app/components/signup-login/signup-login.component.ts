@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionService } from 'src/app/services/sessions.service';
+import { Router } from '@angular/router';
+import { NavigationService } from 'src/app/services/navigation.service';
 
 // This is a wrapper component for both the login and signup componets
 @Component({
@@ -8,9 +11,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupLoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private sessionService: SessionService, private navigationService: NavigationService) { }
 
   ngOnInit() {
+    if (this.sessionService.getActiveUser()){
+      this.navigationService.navToMain();
+    }
   }
-
 }

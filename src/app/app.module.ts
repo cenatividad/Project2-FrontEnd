@@ -17,6 +17,7 @@ import { NewProjectComponent } from './components/new-project/new-project.compon
 import { ViewInvitationsComponent } from './components/view-invitations/view-invitations.component';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClientModule } from '@angular/common/http';
+import { NavigationService } from './services/navigation.service';
 import { ProjectService } from './services/project.service';
 import { ProjectComponent } from './components/project/project.component';
 
@@ -39,7 +40,7 @@ import { ProjectComponent } from './components/project/project.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [LoginService, SignupService, SessionService, CookieService, ProjectService],
+  providers: [LoginService, SignupService, SessionService, CookieService, NavigationService, ProjectService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -31,8 +31,11 @@ export class SignupComponent implements OnInit {
     user.firstName = this.firstName;
     user.lastName = this.lastName;
 
-    this.signupService.signup(user);
-
+    this.signupService.signup(user).subscribe((payload) => {
+      console.log("Signup Component: user created");
+    }, (error) => {
+      console.log("Signup component: user failed to be created");
+    });
   }
 
   // Checks that the inputs are in valid formats, submit button will be disabled if they're not.
