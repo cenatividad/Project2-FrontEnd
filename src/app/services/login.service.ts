@@ -2,36 +2,29 @@ import { Injectable } from '@angular/core';
 import { SessionService } from './sessions.service';
 import { User } from '../models/user';
 import { NavigationService } from './navigation.service';
+import { Observable } from 'rxjs';
+import { HttpClient, HttpResponse } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
+  loginURI: String = '/users/login';
 
-  constructor(private sessionService: SessionService, private navigationService: NavigationService) { }
+  constructor(private sessionService: SessionService, private navigationService: NavigationService,
+              private httpClient: HttpClient) { }
 
 
   // Performs the login service. Requests the server for authentication and proceeds with logic based on success
   // or failure.
-  doLogin(username: string, password: string) {
-    // We do the checking stuff here
-    console.log(username + " " + password);
+  doLogin(username: string, password: string): Observable<User> {
+    console.log("LoginService: Logging in " + username + " " + password);
 
-    // placeholder
     const user: User = new User();
-
-    this.sessionService.setActiveUser(user);
-
-    //routing
-    if (this.sessionService.getActiveUser()) {
-      console.log("login service, login success");
-      this.navigationService.navToMain();
-
-      // LOGIN SUCCESS: do stuff
-    } else {
-      console.log("login service, login fail");
-      // LOGIN FAILURE: do stuff
-    }
+    user.username = username;
+    user.password = password;
+    return this.httpClient.post<User>(environment.APIbase + this.loginURI, user);
   }
 
   // Checks username for not being null/undefined or empty
