@@ -18,6 +18,7 @@ import { ViewInvitationsComponent } from './components/view-invitations/view-inv
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClientModule } from '@angular/common/http';
 import { ProjectService } from './services/project.service';
+import { ProjectComponent } from './components/project/project.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ProjectService } from './services/project.service';
     SignupLoginComponent,
     UserProjectsComponent,
     NewProjectComponent,
-    ViewInvitationsComponent
+    ViewInvitationsComponent,
+    ProjectComponent
   ],
   imports: [
     BrowserModule,
