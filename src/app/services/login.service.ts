@@ -31,9 +31,26 @@ export class LoginService {
     }
   }
 
+  // Checks username for not being null/undefined or empty
+  usernameOK(username: string): boolean{
+    if(username && username !== ''){
+      return true;
+    } else{
+      return false;
+    }
+  }
+
+  // Checks password for not being null/undefined or empty
+  passwordOK(password: string): boolean{
+    if(password && password !== ''){
+      return true;
+    } else{
+      return false;
+    }
+  }
+
   // Verifies that the passed inputs are correct in some way.
   checkInput(username: string, password: string): boolean{
-    // Do Logic
-    return true;
+    return(this.usernameOK(username) && this.passwordOK(password));
   }
 }

@@ -6,6 +6,6 @@
     <label for="login-password">Password</label>
     <input id="login-password" type="password" [(ngModel)]="password" name="password">
 
-    <button class="btn btn-primary" (click)="login()">Login</button>
+    <button class="btn btn-primary" (click)="login()" [disabled]="!checkInput()">Login</button>
   </div> 
 </form>
