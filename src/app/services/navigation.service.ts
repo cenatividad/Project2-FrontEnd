@@ -15,4 +15,8 @@ export class NavigationService {
   navToLogin(){
     this.router.navigateByUrl('');
   }
+
+  navToUserProjects(){
+    this.router.navigateByUrl('/main/user-projects');
+  }
 }

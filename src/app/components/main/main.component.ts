@@ -15,7 +15,6 @@ export class MainComponent implements OnInit {
   constructor(private router: Router, private cookieService: CookieService, 
               private sessionService: SessionService) { }
 
-
   ngOnInit() {
   }
 

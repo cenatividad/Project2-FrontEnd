@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionService } from 'src/app/services/sessions.service';
+import { Project } from 'src/app/models/project';
 
 @Component({
   selector: 'app-user-projects',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProjectsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private sessionService: SessionService) { }
 
   ngOnInit() {
   }
 
+  getProjects() {
+    return this.sessionService.getActiveUserProjects();
+  }
 }
