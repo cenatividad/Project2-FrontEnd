@@ -3,6 +3,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { Routes, Router } from '@angular/router';
 import { ProjectService } from '../../services/project.service';
 import { Project } from '../../models/project';
+import { InvitationService } from 'src/app/services/invitation.service';
 
 @Component({
   selector: 'app-project',
@@ -15,13 +16,29 @@ export class ProjectComponent implements OnInit {
   projectName = '';
   projectDescription = '';
 
+  invitedUserEmail = '';
+  invitationFailed = false;
+
   constructor(private cookieService: CookieService,
               private router: Router,
-              private projectService: ProjectService) { }
+              private projectService: ProjectService,
+              private invitationService: InvitationService) { }
 
   ngOnInit() {
     this.getProject();
     
+  }
+
+  inviteUser() {
+    let credentials = {'email': this.invitedUserEmail, 'projectID': this.cookieService.get('projectID') };
+    this.invitationService.addUserToProject(credentials).subscribe( (payload) => {
+      console.log(payload);
+    },
+    (err) => {
+      this.invitationFailed = true;
+    }
+
+    )
   }
 
   getProject() {

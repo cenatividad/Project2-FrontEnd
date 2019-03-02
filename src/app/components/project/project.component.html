@@ -1,3 +1,10 @@
 <h2>{{projectName}}</h2>
 <p>{{projectDescription}}</p>
+<div id="invitation-block">
+    <h4 class='problem'>Invitation failed</h4>
+    <label for="email">Invite User</label>
+    <input id="email" type="text" placeholder="Enter invitee's email" [(ngModel)]=invitedUserEmail>
+    <button (click)="inviteUser()">Send Invitations</button>
+</div>
+
 

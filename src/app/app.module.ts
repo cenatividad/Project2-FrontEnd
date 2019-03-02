@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavigationService } from './services/navigation.service';
 import { ProjectService } from './services/project.service';
 import { ProjectComponent } from './components/project/project.component';
+import { InvitationService } from './services/invitation.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { ProjectComponent } from './components/project/project.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [LoginService, SignupService, SessionService, CookieService, NavigationService, ProjectService],
+  providers: [LoginService, SignupService, SessionService, CookieService, NavigationService, ProjectService, InvitationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

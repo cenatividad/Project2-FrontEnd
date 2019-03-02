@@ -17,7 +17,7 @@ export class ProjectService {
   }
 
   viewProject(id: number): Observable<any> {
-    const url = `${environment.apiUrl}/project/viewProject`;
+    const url = `${environment.APIbase}/project/viewProject`;
     return this.httpClient.post(url, id);
   }
 
