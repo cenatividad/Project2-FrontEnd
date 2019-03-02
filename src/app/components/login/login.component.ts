@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   login(){
     this.loginService.doLogin(this.username, this.password).subscribe((payload)=>{
       this.sessionService.setActiveUser(payload);
-      this.navigationService.navToMain();
+      this.navigationService.navToUserProjects();
     }, (error) => {
       console.log("LoginComponent: Login failed");
     });
