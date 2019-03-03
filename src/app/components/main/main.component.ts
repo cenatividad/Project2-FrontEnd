@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { SessionService } from 'src/app/services/sessions.service';
+import { NavigationService } from 'src/app/services/navigation.service';
 
 @Component({
   selector: 'app-main',
@@ -10,10 +11,12 @@ import { SessionService } from 'src/app/services/sessions.service';
 })
 export class MainComponent implements OnInit {
 
-  projects = [];
-  
-  constructor(private router: Router, private cookieService: CookieService, 
-              private sessionService: SessionService) { }
+  projects() {
+    return this.sessionService.getActiveUserProjects();
+  }
+
+  constructor(private router: Router, private cookieService: CookieService,
+              private sessionService: SessionService, private navigationService: NavigationService) { }
 
   ngOnInit() {
   }
@@ -22,7 +25,7 @@ export class MainComponent implements OnInit {
     this.sessionService.logout();
   }
 
-  routerLink(id: number) {
-    this.router.navigateByUrl(`/main/project/${id}`);
+  navToProject(id: number) {
+    this.navigationService.navToProject(id);
   }
 }

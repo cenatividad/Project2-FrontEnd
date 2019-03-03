@@ -21,6 +21,9 @@ import { NavigationService } from './services/navigation.service';
 import { ProjectService } from './services/project.service';
 import { ProjectComponent } from './components/project/project.component';
 import { InvitationService } from './services/invitation.service';
+import { StoryCardComponent } from './components/story-card/story-card.component';
+import { StoryListComponent } from './components/story-list/story-list.component';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,9 @@ import { InvitationService } from './services/invitation.service';
     UserProjectsComponent,
     NewProjectComponent,
     ViewInvitationsComponent,
-    ProjectComponent
+    ProjectComponent,
+    StoryCardComponent,
+    StoryListComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,8 @@ import { InvitationService } from './services/invitation.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [LoginService, SignupService, SessionService, CookieService, NavigationService, ProjectService, InvitationService],
+  providers: [UserService, LoginService, SignupService, SessionService, CookieService, NavigationService, ProjectService,
+    InvitationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
