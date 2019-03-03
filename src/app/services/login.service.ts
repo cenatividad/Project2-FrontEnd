@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class LoginService {
-  loginURI: String = '/users/login';
+  loginURI: string = '/users/login';
 
   constructor(private sessionService: SessionService, private navigationService: NavigationService,
               private httpClient: HttpClient) { }

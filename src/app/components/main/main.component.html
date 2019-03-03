@@ -9,7 +9,7 @@
 <ul class="sidebar">
   <li class="sidebar-header">Active Projects</li>
   <ul class="sidebar-list-wrapper">
-    <li class="sidebar-item" *ngFor="let item of projects" (click)="projectLink(item.id)">{{item.title}}</li>
+    <li class="sidebar-item" *ngFor="let item of projects()" (click)="navToProject(item.projectID)">{{item.projectName}}</li>
   </ul>
 </ul>
 <router-outlet></router-outlet>

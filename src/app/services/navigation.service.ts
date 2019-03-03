@@ -19,4 +19,8 @@ export class NavigationService {
   navToUserProjects(){
     this.router.navigateByUrl('/main/user-projects');
   }
+
+  navToProject(id: number){
+    this.router.navigateByUrl(`/main/project/${id}`);
+  }
 }
