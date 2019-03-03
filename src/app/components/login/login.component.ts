@@ -21,19 +21,19 @@ export class LoginComponent implements OnInit {
   /**
    * Calls the login service to validate user
    */
-  login(){
-    this.loginService.doLogin(this.username, this.password).subscribe((payload)=>{
+  login() {
+    this.loginService.doLogin(this.username, this.password).subscribe((payload) => {
       this.sessionService.setActiveUser(payload);
       this.navigationService.navToUserProjects();
     }, (error) => {
-      console.log("LoginComponent: Login failed");
+      console.log('LoginComponent: Login failed');
     });
   }
 
   /**
    * Checks that the input is valid, form will disable login button if they are not
    */
-  checkInput(): boolean{
+  checkInput(): boolean {
     return this.loginService.checkInput(this.username, this.password);
   }
 }

@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
 import { SessionService } from 'src/app/services/sessions.service';
 import { NavigationService } from 'src/app/services/navigation.service';
 
@@ -15,8 +13,7 @@ export class MainComponent implements OnInit {
     return this.sessionService.getActiveUserProjects();
   }
 
-  constructor(private router: Router, private cookieService: CookieService,
-              private sessionService: SessionService, private navigationService: NavigationService) { }
+  constructor(private sessionService: SessionService, private navigationService: NavigationService) { }
 
   ngOnInit() {
   }

@@ -44,7 +44,7 @@ export class ProjectComponent implements OnInit {
   }
 
   getProject() {
-    this.projectService.viewProject(this.projectID).subscribe( (payload) =>{
+    this.projectService.viewProject(this.projectID).subscribe( (payload) => {
       for (const key in payload) {
         if (payload.hasOwnProperty(key)) {
           this.project = payload;

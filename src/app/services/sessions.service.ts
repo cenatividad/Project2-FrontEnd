@@ -15,8 +15,8 @@ export class SessionService {
   constructor(private navigationService: NavigationService, private cookieService: CookieService, private userService: UserService) { }
 
   // Checks for a currently logged in user, logs them out if necessary, and assigns a new user.
-  setActiveUser(user: User){
-    //TODO rest of the logic
+  setActiveUser(user: User) {
+    // TODO rest of the logic
     this.activeUser = user;
     this.fetchActiveUserProjects();
   }
@@ -45,8 +45,8 @@ export class SessionService {
   }
 
   // nullifies the current activeUser to prevent potential conflict
-  logout(){
-    this.cookieService.deleteAll(); //safer to do field by field
+  logout() {
+    this.cookieService.deleteAll(); // safer to do field by field
     this.setActiveUser(null);
     this.navigationService.navToLogin();
   }

@@ -54,19 +54,19 @@ export class ProjectService {
     return obj;
   }
 
-  getCurrentProject(){
+  getCurrentProject() {
     return this.currentProject;
   }
 
-  getStories(){
+  getStories() {
     return this.stories;
   }
 
-  setCurrentProject(project: Project){
+  setCurrentProject(project: Project) {
     this.currentProject = project;
   }
 
-  setStories(stories: Array<Story>){
+  setStories(stories: Array<Story>) {
     this.stories = stories;
   }
 }

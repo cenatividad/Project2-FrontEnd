@@ -37,8 +37,8 @@ export class NewProjectComponent implements OnInit {
 
     this.projectService.createProject(this.project).subscribe( (payload: Project) => {
       console.log(payload);
-      const credentials = { 'email' : this.user.email, 'projectID' : payload.projectID.toString()};
-      this.invitationService.addUserToProject(credentials).subscribe( (payload) => {});
+      const credentials = { email : this.user.email, projectID : payload.projectID.toString()};
+      this.invitationService.addUserToProject(credentials).subscribe( () => {});
       this.navigationService.navToProject(payload.projectID);
     }, (err) => {
       console.log(err);

@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class LoginService {
-  loginURI: string = '/users/login';
+  loginURI = '/users/login';
 
   constructor(private sessionService: SessionService, private navigationService: NavigationService,
               private httpClient: HttpClient) { }
@@ -19,7 +19,7 @@ export class LoginService {
   // Performs the login service. Requests the server for authentication and proceeds with logic based on success
   // or failure.
   doLogin(username: string, password: string): Observable<User> {
-    console.log("LoginService: Logging in " + username + " " + password);
+    console.log('LoginService: Logging in ' + username + ' ' + password);
 
     const user: User = new User();
     user.username = username;

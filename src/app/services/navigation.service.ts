@@ -8,19 +8,19 @@ export class NavigationService {
 
   constructor(private router: Router) { }
 
-  navToMain(){
+  navToMain() {
     this.router.navigateByUrl('/main');
   }
 
-  navToLogin(){
+  navToLogin() {
     this.router.navigateByUrl('');
   }
 
-  navToUserProjects(){
+  navToUserProjects() {
     this.router.navigateByUrl('/main/user-projects');
   }
 
-  navToProject(id: number){
+  navToProject(id: number) {
     this.router.navigateByUrl(`/main/project/${id}`);
   }
 }
