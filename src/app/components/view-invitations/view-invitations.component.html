@@ -1,3 +1,17 @@
-<p>
-  view-invitations works!
-</p>
+<div>
+  <ol>
+    <li *ngFor="let invitation of invitations; let i = index">
+      <div>
+        <ul>
+          <li>
+            {{invitation.projectID}}
+          </li>
+          <li>
+            <button class="AcceptButton" (click)="processInvitation(i, 'ACCEPTED')">Accept</button>
+            <button class="DeclineButton" (click)="processInvitation(i, 'DENIED')">Decline</button>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ol>
+</div>
