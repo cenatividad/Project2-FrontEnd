@@ -24,6 +24,8 @@ import { InvitationService } from './services/invitation.service';
 import { StoryCardComponent } from './components/story-card/story-card.component';
 import { StoryListComponent } from './components/story-list/story-list.component';
 import { UserService } from './services/user.service';
+import { CreateStoryComponent } from './components/create-story/create-story.component';
+import { StoryService } from './services/story.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { UserService } from './services/user.service';
     ViewInvitationsComponent,
     ProjectComponent,
     StoryCardComponent,
-    StoryListComponent
+    StoryListComponent,
+    CreateStoryComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,7 @@ import { UserService } from './services/user.service';
     HttpClientModule
   ],
   providers: [UserService, LoginService, SignupService, SessionService, CookieService, NavigationService, ProjectService,
-    InvitationService],
+    InvitationService, StoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -12,6 +12,7 @@ import { forEach } from '@angular/router/src/utils/collection';
 export class ProjectService {
   private currentProject: Project;
   private stories: Array<Story>;
+  storiesByStatus = {};
   storyStatuses: Array<string> = ['PENDING', 'DOCKED', 'SOLVING', 'CODING', 'TESTING', 'COMPLETED'];
 
   constructor(private httpClient: HttpClient) { }
@@ -68,5 +69,17 @@ export class ProjectService {
 
   setStories(stories: Array<Story>) {
     this.stories = stories;
+    if (this.stories) {
+      this.storiesByStatus = this.filterStoriesByStatus(this.storyStatuses);
+    }
+  }
+
+  addStory(newStory: Story) {
+    console.log('ProjectService.addStory called');
+    this.stories.push(newStory);
+    if (this.storiesByStatus[newStory.status]) {
+      console.log('ProjectService.addStory if is true');
+      this.storiesByStatus[newStory.status].push(newStory);
+    }
   }
 }

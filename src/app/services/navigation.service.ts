@@ -23,4 +23,8 @@ export class NavigationService {
   navToProject(id: number) {
     this.router.navigateByUrl(`/main/project/${id}`);
   }
+
+  navToProjectNewStory(projectID: number) {
+    this.router.navigateByUrl(`/main/project/${projectID}/new-story`)
+  }
 }

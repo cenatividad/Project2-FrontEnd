@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ProjectService } from '../../services/project.service';
 import { Project } from '../../models/project';
 import { InvitationService } from '../../services/invitation.service';
+import { NavigationService } from 'src/app/services/navigation.service';
 
 @Component({
   selector: 'app-project',
@@ -13,8 +14,7 @@ import { InvitationService } from '../../services/invitation.service';
 export class ProjectComponent implements OnInit {
 
   project = new Project();
-  filteredProjectStories = {};
-  statusesToDisplay = ['DOCKED', 'SOLVING', 'CODING', 'TESTING'];
+  statusesToDisplay = ['PENDING', 'DOCKED', 'SOLVING', 'CODING', 'TESTING'];
   projectName = '';
   projectDescription = '';
 
@@ -23,7 +23,7 @@ export class ProjectComponent implements OnInit {
 
   projectID: number;
 
-  constructor(private cookieService: CookieService,
+  constructor(private navigationService: NavigationService,
               private projectService: ProjectService,
               private invitationService: InvitationService,
               private activatedRoute: ActivatedRoute) { }
@@ -59,10 +59,8 @@ export class ProjectComponent implements OnInit {
     }, (err) => console.log(err));
   }
 
-  setFilteredProjectStories() {
-    const statuses = this.projectService.storyStatuses;
-    this.filteredProjectStories = this.projectService.filterStoriesByStatus(statuses);
-    console.log('ProjectComponent: ', this.filteredProjectStories);
+  navToProjectNewStory() {
+    this.navigationService.navToProjectNewStory(this.projectID);
   }
 
   fetchProjectStories() {
@@ -71,10 +69,13 @@ export class ProjectComponent implements OnInit {
     }
     this.projectService.fetchProjectStories(this.project.projectID).subscribe((payload) => {
       this.projectService.setStories(payload);
-      this.setFilteredProjectStories();
       console.log('ProjectComponent: stories fetched: ' + payload);
     }, (error) => {
       console.log('ProjectComponent: fetchProjectStories error: ' + error);
     });
   }
+
+  filteredProjectStories() {
+    return this.projectService.storiesByStatus;
+  };
 }
