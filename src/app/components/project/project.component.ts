@@ -13,6 +13,8 @@ import { InvitationService } from '../../services/invitation.service';
 export class ProjectComponent implements OnInit {
 
   project = new Project();
+  filteredProjectStories = {};
+  statusesToDisplay = ['DOCKED', 'SOLVING', 'CODING', 'TESTING'];
   projectName = '';
   projectDescription = '';
 
@@ -51,10 +53,16 @@ export class ProjectComponent implements OnInit {
           this.projectName = this.project.projectName;
           this.projectDescription = this.project.description;
           this.projectService.setCurrentProject(payload);
-          this.fetchProjectStories();
         }
       }
+      this.fetchProjectStories();
     }, (err) => console.log(err));
+  }
+
+  setFilteredProjectStories() {
+    const statuses = this.projectService.storyStatuses;
+    this.filteredProjectStories = this.projectService.filterStoriesByStatus(statuses);
+    console.log('ProjectComponent: ', this.filteredProjectStories);
   }
 
   fetchProjectStories() {
@@ -63,6 +71,7 @@ export class ProjectComponent implements OnInit {
     }
     this.projectService.fetchProjectStories(this.project.projectID).subscribe((payload) => {
       this.projectService.setStories(payload);
+      this.setFilteredProjectStories();
       console.log('ProjectComponent: stories fetched: ' + payload);
     }, (error) => {
       console.log('ProjectComponent: fetchProjectStories error: ' + error);
