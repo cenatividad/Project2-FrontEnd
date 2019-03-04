@@ -20,7 +20,7 @@ export class ViewInvitationsComponent implements OnInit {
   }
 
   processInvitation(i: number, appDen: boolean) {
-
+    this.invitations[i];
   }
 
 }
