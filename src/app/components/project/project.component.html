@@ -7,4 +7,14 @@
     <button (click)="inviteUser()">Send Invitations</button>
 </div>
 
+<button (click)="navToProjectNewStory()">New Story</button>
 
+<div>
+    <div>
+        <div *ngFor='let status of statusesToDisplay'>
+            <app-story-list [stories]="filteredProjectStories()[status]"></app-story-list>
+        </div>
+    </div>
+</div>
+
+<router-outlet></router-outlet>

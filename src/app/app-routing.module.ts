@@ -8,6 +8,7 @@ import { UserProjectsComponent } from './components/user-projects/user-projects.
 import { NewProjectComponent } from './components/new-project/new-project.component';
 import { ViewInvitationsComponent } from './components/view-invitations/view-invitations.component';
 import { ProjectComponent } from './components/project/project.component';
+import { CreateStoryComponent } from './components/create-story/create-story.component';
 
 const routes: Routes = [
   {
@@ -28,8 +29,14 @@ const routes: Routes = [
         path: 'view-invitations',
         component: ViewInvitationsComponent
        }, {
-        path: `project`,
-        component: ProjectComponent
+        path: 'project/:id',
+        component: ProjectComponent,
+        children: [
+          {
+            path: 'new-story',
+            component: CreateStoryComponent
+          }
+        ]
       }
     ]
   }

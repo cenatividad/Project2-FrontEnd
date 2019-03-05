@@ -10,7 +10,7 @@ export class InvitationService {
   constructor(private httpClient: HttpClient) { }
 
   addUserToProject(credentials) {
-  const url = `${environment.APIbase}project/invite`;
-  return this.httpClient.post(url, credentials);
+    const url = `${environment.APIbase}project/invite`;
+    return this.httpClient.post(url, credentials);
   }
 }
