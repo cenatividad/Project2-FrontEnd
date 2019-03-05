@@ -1,0 +1,37 @@
+#wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+#auto-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: teal;
+    color: white;
+}
+
+.status-column {
+    display: flex;
+    flex-direction: column;
+    background: teal;
+    padding: 5px;
+    /* border: 2px solid gold; */
+    margin: 2px;
+    border-radius: 5px;
+}
+
+.story-holder {
+    display: flex;
+    flex-direction: row;
+    background: darkgreen;
+    padding: 5px;
+    /* border: 5px solid gold; */
+    min-width: 95%;
+    border-radius: 5px;
+    justify-content: space-between;
+}
+
+.status-title {
+    text-align: center;
+}

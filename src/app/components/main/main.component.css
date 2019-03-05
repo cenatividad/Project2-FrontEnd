@@ -1,24 +1,35 @@
 nav{
+    display: flex;
+    flex-direction: row;
+    color: darkgreen;
     border: 1px;
-    background-color: lightblue;
+    background-color: gold;
 }
 
-.container{
-    border: 1px;
-    background-color: lightgrey;
-    min-width: 100%;
+.nav-bar-option {
+    padding: 10px;
+    background: white;
+    color: black;
+    border-radius: 5px;
+}
+
+#nav-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
 }
 
 .sidebar{
-    border: 1px;
-    background-color: lightcyan;
-}
-
-.col-9{
-    border: 1px;
-    background-color: lightyellow;
+    flex-grow: 1;
+    background-color: teal;
 }
 
 .project-view{
+    flex-grow: 4;
     min-width: 83%;
 }
