@@ -77,5 +77,5 @@ export class ProjectComponent implements OnInit {
 
   filteredProjectStories() {
     return this.projectService.storiesByStatus;
-  };
+  }
 }

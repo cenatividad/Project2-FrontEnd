@@ -7,8 +7,8 @@
             {{invitation.projectID}}
           </li>
           <li>
-            <button class="AcceptButton" (click)="processInvitation(i, 'ACCEPTED')">Accept</button>
-            <button class="DeclineButton" (click)="processInvitation(i, 'DENIED')">Decline</button>
+            <button class="AcceptButton" (click)="processInvitation(i, true)">Accept</button>
+            <button class="DeclineButton" (click)="processInvitation(i, false)">Decline</button>
           </li>
         </ul>
       </div>
