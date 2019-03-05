@@ -1,0 +1,24 @@
+nav{
+    border: 1px;
+    background-color: lightblue;
+}
+
+.container{
+    border: 1px;
+    background-color: lightgrey;
+    min-width: 100%;
+}
+
+.sidebar{
+    border: 1px;
+    background-color: lightcyan;
+}
+
+.col-9{
+    border: 1px;
+    background-color: lightyellow;
+}
+
+.project-view{
+    min-width: 83%;
+}

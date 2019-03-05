@@ -1,15 +1,31 @@
-<nav>
-  <ul id="nav-options">
-    <li class="nav-bar-option" routerLink="/main/user-projects">View Projects</li>
-    <li class="nav-bar-option" routerLink="/main/new-project">Create Project</li>
-    <li class="nav-bar-option" routerLink="/main/view-invitations">Invitations</li>
-    <li class="nav-bar-option" id="log-out-button" (click)="logout()">Log out</li>
-  </ul>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">Yamcha's Dojo</a>
+    </div>
+    <ul id="nav-options" class="nav navbar-nav">
+      <li class="nav-bar-option" routerLink="/main/user-projects">View Projects</li>
+      <li class="nav-bar-option" routerLink="/main/new-project">Create Project</li>
+      <li class="nav-bar-option" routerLink="/main/view-invitations">Invitations</li>
+      <li class="nav-bar-option" id="log-out-button" (click)="logout()">Log out</li>
+    </ul>
+  </div>
 </nav>
-<ul class="sidebar">
-  <li class="sidebar-header">Active Projects</li>
-  <ul class="sidebar-list-wrapper">
-    <li class="sidebar-item" *ngFor="let item of projects()" (click)="navToProject(item.projectID)">{{item.projectName}}</li>
-  </ul>
-</ul>
-<router-outlet></router-outlet>
+
+<div class="container">
+  <div class="row">
+    <div class="col-3 col-md-2">
+      <ul class="sidebar">
+        <li class="sidebar-header">Active Projects</li>
+        <ul class="sidebar-list-wrapper">
+          <li class="sidebar-item" *ngFor="let item of projects()" (click)="navToProject(item.projectID)">
+            {{item.projectName}}
+          </li>
+        </ul>
+      </ul>
+    </div>
+    <div class="col-9 col-md-4 project-view">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
