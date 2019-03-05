@@ -1,16 +1,18 @@
-nav{
-    display: flex;
-    flex-direction: row;
-    color: darkgreen;
-    border: 1px;
-    background-color: gold;
+.sidebar {
+    position: absolute;
+    left: 0px;
+    min-height: 100vh;
+    display: block;
+    background: #884444;
+    color: white;
+    padding: 40px;
+    list-style-type: none;
 }
 
-.nav-bar-option {
-    padding: 10px;
-    background: white;
-    color: black;
-    border-radius: 5px;
+nav {
+    background: gold;
+    display: flex;
+    flex-direction: row;
 }
 
 #nav-options {
@@ -19,17 +21,14 @@ nav{
     justify-content: space-between;
 }
 
-.container {
-    display: flex;
-    flex-direction: row;
+.nav-bar-option {
+    background: #00aaaa;
+    color: gold;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 6px;
 }
 
-.sidebar{
-    flex-grow: 1;
-    background-color: teal;
-}
-
-.project-view{
-    flex-grow: 4;
-    min-width: 83%;
+.nav-bar-option:hover {
+    background: teal;
 }
