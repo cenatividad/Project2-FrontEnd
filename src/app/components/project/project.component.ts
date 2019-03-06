@@ -5,6 +5,7 @@ import { ProjectService } from '../../services/project.service';
 import { Project } from '../../models/project';
 import { InvitationService } from '../../services/invitation.service';
 import { NavigationService } from 'src/app/services/navigation.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-project',
@@ -14,7 +15,7 @@ import { NavigationService } from 'src/app/services/navigation.service';
 export class ProjectComponent implements OnInit {
 
   project = new Project();
-  statusesToDisplay = ['PENDING', 'DOCKED', 'SOLVING', 'CODING', 'TESTING'];
+  statusesToDisplay = ['PENDING', 'DOCKED', 'SOLVING', 'CODING', 'TESTING', 'COMPLETED'];
   projectName = '';
   projectDescription = '';
 
@@ -23,10 +24,15 @@ export class ProjectComponent implements OnInit {
 
   projectID: number;
 
+  closeResult: string;
+
+  modalTitle: string;
+
   constructor(private navigationService: NavigationService,
               private projectService: ProjectService,
               private invitationService: InvitationService,
-              private activatedRoute: ActivatedRoute) { }
+              private activatedRoute: ActivatedRoute,
+              private modalService: NgbModal) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe( (params) => {
@@ -77,5 +83,28 @@ export class ProjectComponent implements OnInit {
 
   filteredProjectStories() {
     return this.projectService.storiesByStatus;
-  };
+  }
+
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+      this.navigationService.navToProject(this.projectID);
+    }, (reason) => {
+      this.navigationService.navToProject(this.projectID);
+      this.closeResult = `Dismissed`;
+    });
+  }
+
+  openNewStory(content) {
+    this.modalTitle = 'Create New Story';
+    this.open(content);
+    this.navToProjectNewStory();
+  }
+
+  openViewDocked(content) {
+    this.modalTitle = 'Docked Stories';
+    this.open(content);
+  }
+
+
 }

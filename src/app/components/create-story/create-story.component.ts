@@ -21,6 +21,7 @@ export class CreateStoryComponent implements OnInit {
     this.storyService.addNewStory(this.storyName, this.storyDescription, this.storyPoints).subscribe((payload) => {
       // Story successfully created
       this.projectService.addStory(payload);
+      this.reset();
       console.log('New Story Created: ', payload);
     }, (error) => {
       // Failed to create story

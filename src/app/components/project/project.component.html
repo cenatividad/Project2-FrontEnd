@@ -9,16 +9,31 @@
             <button (click)="inviteUser()">Send Invitations</button>
         </div>
     </div>
+
     <div class="container">
         <div class="row story-holder">
-            <div id="story-maker" >
-                <button (click)="navToProjectNewStory()">New Story</button>
-                <router-outlet></router-outlet>
+            <div id="story-maker">
+                <button (click)="openNewStory(content)">New Story</button>
             </div>
             <div class="col status-column" *ngFor='let status of statusesToDisplay'>
                 <h2 class="status-title">{{status}}</h2>
-                <app-story-list [stories]="filteredProjectStories()[status]"></app-story-list>
+                <app-story-list [stories]="filteredProjectStories()[status]" [status]="status"
+                    [dropLists]="statusesToDisplay"></app-story-list>
             </div>
         </div>
     </div>
 </div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">{{modalTitle}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <router-outlet></router-outlet>
+    </div>
+    <div class="modal-footer">
+    </div>
+</ng-template>

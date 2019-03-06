@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class StoryService {
+  updateStoryURI = 'story';
 
   addProjectStoryURI(projectID: number) {
     return `${environment.APIbase}/project/${projectID}/stories`;
@@ -25,5 +26,9 @@ export class StoryService {
     story.description = storyDescription;
     story.points = storyPoints;
     return this.httpClient.post<Story>(this.addProjectStoryURI(projectID), story);
+  }
+
+  updateStory(story: Story): Observable<Story> {
+    return this.httpClient.put<Story>(`${environment.APIbase}${this.updateStoryURI}`, story);
   }
 }

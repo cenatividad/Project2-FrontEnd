@@ -1,5 +1,7 @@
-<div id="story-list">
-  <div *ngFor="let story of stories">
-    <app-story-card [story]="story"></app-story-card>
-  </div>
+<div class="story-list" cdkDropList
+    id="{{status}}" 
+    [cdkDropListData]="stories"
+    [cdkDropListConnectedTo]="dropLists"
+    (cdkDropListDropped)="drop($event)">
+  <app-story-card class="story-card" *ngFor="let story of stories" [story]="story" cdkDrag></app-story-card>
 </div>
