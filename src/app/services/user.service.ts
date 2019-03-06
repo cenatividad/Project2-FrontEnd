@@ -14,8 +14,8 @@ export class UserService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getUserProjects(id: number): Observable<Array<Project>> {
-    const obs = this.httpClient.get<Array<Project>>(this.getUserProjectsURI(id));
+  getUserProjects(id: number): Observable<any> {
+    const obs = this.httpClient.get(this.getUserProjectsURI(id));
     return obs;
   }
 }

@@ -1,0 +1,14 @@
+.data-form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.btn {
+    align-self: flex-end;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}

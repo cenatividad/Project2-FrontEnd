@@ -1,11 +1,4 @@
-.invite-wrapper {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 0 20% 0;
-}
-
-.invite {
+.project-card {
     height: 200px;
     width: 300px;
     margin: 10px;
@@ -17,7 +10,7 @@
     flex-direction: column;
 }
 
-.invite:hover{
+.project-card:hover {
     background: #33cccc;
 }
 

@@ -1,0 +1,6 @@
+.project-display {
+    margin: 0 20% 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+}
