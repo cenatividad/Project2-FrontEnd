@@ -1,24 +1,34 @@
-nav{
-    border: 1px;
-    background-color: lightblue;
+.sidebar {
+    position: absolute;
+    left: 0px;
+    min-height: 100vh;
+    display: block;
+    background: #884444;
+    color: white;
+    padding: 40px;
+    list-style-type: none;
 }
 
-.container{
-    border: 1px;
-    background-color: lightgrey;
-    min-width: 100%;
+nav {
+    background: gold;
+    display: flex;
+    flex-direction: row;
 }
 
-.sidebar{
-    border: 1px;
-    background-color: lightcyan;
+#nav-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.col-9{
-    border: 1px;
-    background-color: lightyellow;
+.nav-bar-option {
+    background: #00aaaa;
+    color: gold;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 6px;
 }
 
-.project-view{
-    min-width: 83%;
+.nav-bar-option:hover {
+    background: teal;
 }

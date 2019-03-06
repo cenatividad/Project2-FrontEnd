@@ -1,5 +1,16 @@
 .story-card{
-    border: 3px, solid;
-    background-color: teal;
-    margin: 5px;
+    padding: 3px;
+    background-color: hsl(180, 100%, 33%);
+    margin: 4px;
+    border-radius: 5px;
+    box-shadow: 2px;
+    color: white;
+}
+
+.story-name{
+    font: 25px arial, sans-serif;
+}
+
+.story-description{
+    font: 5px arial, sans-serif;
 }
