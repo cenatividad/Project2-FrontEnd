@@ -9,12 +9,11 @@
             <button (click)="inviteUser()">Send Invitations</button>
         </div>
     </div>
-
+    <div id="story-maker">
+        <button (click)="openNewStory(content)">New Story</button>
+    </div>
     <div class="container">
         <div class="row story-holder">
-            <div id="story-maker">
-                <button (click)="openNewStory(content)">New Story</button>
-            </div>
             <div class="col status-column" *ngFor='let status of statusesToDisplay'>
                 <h2 class="status-title">{{status}}</h2>
                 <app-story-list [stories]="filteredProjectStories()[status]" [status]="status"

@@ -1,12 +1,12 @@
 .story-list{
     border: 3px, solid;
-    min-height: 10%;
+    min-height: 25vh;
 }
   
-  .story-card:last-child {
-    border: none;
-  }
+.story-card:last-child {
+  border: none;
+}
 
-  .cdk-drag-placeholder {
-    visibility: hidden;
-  }
+.cdk-drag-placeholder {
+  visibility: hidden;
+}
