@@ -1,8 +1,9 @@
+import { Invitation } from './../../models/invitation';
 import { Component, OnInit } from '@angular/core';
 import { Routes, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { Invitation } from 'src/app/models/invitation';
 import { InvitationService } from 'src/app/services/invitation.service';
+import { SessionService } from 'src/app/services/sessions.service';
 
 @Component({
   selector: 'app-view-invitations',
@@ -11,10 +12,17 @@ import { InvitationService } from 'src/app/services/invitation.service';
 })
 export class ViewInvitationsComponent implements OnInit {
   invitations: Array<Invitation>;
-  inv: Invitation;
+  inv: any;
+  invStatus: string;
   approveDeny = true;
+  user = this.sessionService.getActiveUser();
+
+  uid: number;
+  pid: number;
+  status: string;
 
   constructor(private cookieService: CookieService,
+              private sessionService: SessionService,
               private router: Router,
               private invitationService: InvitationService) { }
 
@@ -23,20 +31,28 @@ export class ViewInvitationsComponent implements OnInit {
   }
 
   getInvitations() {
-    const credentials = {
-      uid: this.inv.userID
-    };
-    this.invitationService.viewInvitations(credentials).subscribe( (payload) => {
-      for (const key in payload) {
-        if (payload.hasOwnProperty(key)) {
-          this.invitations = payload;
-        }
-      }
-    }, (err) => console.log(Error));
+    const uID = this.user.id;
+
+    this.invitationService.viewInvitations(uID).subscribe( (payload) => {
+      this.invitations = payload || [];
+    }, (err) => console.log(err));
   }
 
   processInvitation(i: number, appDen: boolean) {
-    this.inv = this.invitations[i];
+    if (appDen) {
+      this.invStatus = 'ACCEPTED';
+    } else {
+      this.invStatus = 'DECLINED';
+    }
+
+    const credentials = {
+      upid: this.invitations[i].uPID,
+      status: this.invStatus
+    };
+
+    this.invitationService.processInvitations(credentials).subscribe( (payload) => {
+      this.getInvitations();
+    }, (err) => console.log(Error));
   }
 
 }

@@ -1,6 +1,11 @@
+import { User } from './user';
+import { Project } from './project';
+
 export class Invitation {
-    projectID: number;
-    userID: number;
-    projectName: string;
-    description: string;
+    uPID: number;
+    role: string;
+    inviteStatus: string;
+    contributionScore: number;
+    user: User;
+    project: Project;
 }

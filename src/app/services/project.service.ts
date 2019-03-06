@@ -29,6 +29,8 @@ export class ProjectService {
 
   viewAllProjects() {
     console.log('ProjectService: Why the hell is this being called?');
+
+    console.log('Dont we want to view all of the projects a user is a part of?');
   }
 
   getFetchStoriesURL(id: number) {
