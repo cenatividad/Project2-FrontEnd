@@ -26,6 +26,8 @@ import { StoryListComponent } from './components/story-list/story-list.component
 import { UserService } from './services/user.service';
 import { CreateStoryComponent } from './components/create-story/create-story.component';
 import { StoryService } from './services/story.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { StoryService } from './services/story.service';
     AppRoutingModule,
     NgbModule,
     FormsModule,
+    BrowserAnimationsModule,
+    DragDropModule,
     HttpClientModule
   ],
   providers: [UserService, LoginService, SignupService, SessionService, CookieService, NavigationService, ProjectService,
