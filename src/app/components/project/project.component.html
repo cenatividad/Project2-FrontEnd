@@ -1,4 +1,6 @@
+<!-- The project view -->
 <div id="wrapper">
+    <!-- A top area holding some functions and operations for the user -->
     <div id="auto-block">
         <h2>{{projectName}}</h2>
         <p>{{projectDescription}}</p>
@@ -9,9 +11,11 @@
             <button (click)="inviteUser()">Send Invitations</button>
         </div>
     </div>
+    <!-- Button handling the opening of the story creation modal -->
     <div id="story-maker">
         <button (click)="openNewStory(content)">New Story</button>
     </div>
+    <!-- Our scrum board. Holds user list components, one for each status we want to display -->
     <div class="container">
         <div class="row story-holder">
             <div class="col status-column" *ngFor='let status of statusesToDisplay'>
@@ -23,6 +27,7 @@
     </div>
 </div>
 
+<!-- Definition of the modal used for story creation, it's body is determined by the component we route with -->
 <ng-template #content let-modal>
     <div class="modal-header">
         <h4 class="modal-title" id="modal-basic-title">{{modalTitle}}</h4>

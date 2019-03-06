@@ -6,6 +6,9 @@ import { Router } from '@angular/router';
 import { InvitationService } from 'src/app/services/invitation.service';
 import { NavigationService } from 'src/app/services/navigation.service';
 
+/**
+ * Component for project creation. Holds the necessary input elements.
+ */
 @Component({
   selector: 'app-new-project',
   templateUrl: './new-project.component.html',
@@ -30,6 +33,11 @@ export class NewProjectComponent implements OnInit {
 
   }
 
+  /**
+   * Creates a project based on the input values and has the project service request the creation of the new
+   * project. If a valid project is returned in the response, we have the invitation service link the new 
+   * project with its creator, and we navigate back to the view we came from.
+   */
   newProject() {
     this.project.projectName = this.projectName;
     this.project.description = this.description;

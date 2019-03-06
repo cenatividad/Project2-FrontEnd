@@ -5,6 +5,9 @@ import { CookieService } from 'ngx-cookie-service';
 import { InvitationService } from 'src/app/services/invitation.service';
 import { SessionService } from 'src/app/services/sessions.service';
 
+/**
+ * Component displaying the list of invitations to project where users can manage them.
+ */
 @Component({
   selector: 'app-view-invitations',
   templateUrl: './view-invitations.component.html',
@@ -30,6 +33,10 @@ export class ViewInvitationsComponent implements OnInit {
     this.getInvitations();
   }
 
+  /**
+   * Calls the invitation service to request the server for the list of invitatios related to the current
+   * user.
+   */
   getInvitations() {
     const uID = this.user.id;
 
@@ -38,6 +45,10 @@ export class ViewInvitationsComponent implements OnInit {
     }, (err) => console.log(err));
   }
 
+  /**
+   * Has the invitation service to request the server to process the invitation with the user decision.
+   * On success, updates the list of invitations to remove the processed one.
+   */
   processInvitation(i: number, appDen: boolean) {
     if (appDen) {
       this.invStatus = 'ACCEPTED';

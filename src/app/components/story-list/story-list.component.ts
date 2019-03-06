@@ -3,6 +3,9 @@ import { Story } from 'src/app/models/story';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { StoryService } from 'src/app/services/story.service';
 
+/**
+ * Component for a list of stories of a specific status. Holds references to the relevant objects. 
+ */
 @Component({
   selector: 'app-story-list',
   templateUrl: './story-list.component.html',
@@ -18,6 +21,9 @@ export class StoryListComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * Handles the drop event for the story drag and drop
+   */
   drop(event: CdkDragDrop<string[]>) {
     console.log('StoryListComponent: status = ', event, this.status);
     if (event.previousContainer === event.container) {
