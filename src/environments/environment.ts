@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  baseHref: '/',
   APIbase: 'http://localhost:8081/'
 };
 

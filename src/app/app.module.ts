@@ -28,6 +28,8 @@ import { CreateStoryComponent } from './components/create-story/create-story.com
 import { StoryService } from './services/story.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { APP_BASE_HREF } from '@angular/common';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     HttpClientModule
   ],
   providers: [UserService, LoginService, SignupService, SessionService, CookieService, NavigationService, ProjectService,
-    InvitationService, StoryService],
+    InvitationService, StoryService, {provide: APP_BASE_HREF, useValue: environment.baseHref}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
