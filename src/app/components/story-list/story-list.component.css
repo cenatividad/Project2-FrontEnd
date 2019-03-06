@@ -1,5 +1,13 @@
-#story-list{
+.story-list{
     border: 3px, solid;
     background-color: lightgreen;
     min-height: 10%;
 }
+  
+  .story-card:last-child {
+    border: none;
+  }
+
+  .cdk-drag-placeholder {
+    visibility: hidden;
+  }

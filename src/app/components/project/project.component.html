@@ -12,7 +12,9 @@
 <div class="container">
     <div class="row">
         <div class="col" *ngFor='let status of statusesToDisplay'>
-            <app-story-list [stories]="filteredProjectStories()[status]"></app-story-list>
+            <app-story-list [stories]="filteredProjectStories()[status]"
+                [status]="status"
+                [dropLists]="statusesToDisplay"></app-story-list>
         </div>
     </div>
 </div>
