@@ -5,7 +5,7 @@
         <form #inviteForm="ngForm" id="invitation-block">
             <div *ngIf="invitationFailed" class='alert alert-danger' role="alert">Invitation failed</div>
             <!-- <label for="email">Invite User</label> -->
-            <input id="email" type="text" placeholder="Enter invitee's email" [(ngModel)]="invitedUserEmail">
+            <input id="email" type="text" placeholder="Enter invitee's email" name="email" [(ngModel)]="invitedUserEmail">
             <button (click)="inviteUser(); inviteForm.reset()">Send Invitation</button>
         </form>
         <div id="story-maker">
