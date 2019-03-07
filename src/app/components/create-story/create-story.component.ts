@@ -3,7 +3,7 @@ import { StoryService } from 'src/app/services/story.service';
 import { ProjectService } from 'src/app/services/project.service';
 
 /**
- * Component used for story creation. Presents the user with forms to provide the necessary information for the 
+ * Component used for story creation. Presents the user with forms to provide the necessary information for the
  * story creation.
  */
 @Component({

@@ -1,9 +1,11 @@
 form {
     display: flex;
     flex-direction: column;
+    margin-right: 40px;
 }
 
 button {
     align-self: flex-end;
     margin: 2px;
+    width: 200px;
 }

@@ -1,6 +1,6 @@
 <div id="wrapper">
     <div id="auto-block">
-        <h2>{{projectName}}</h2>
+        <h2 id="h2-project-name">{{projectName}}</h2>
         <p>{{projectDescription}}</p>
         <form #inviteForm="ngForm" id="invitation-block">
             <div *ngIf="invitationFailed" class='alert alert-danger' role="alert">Invitation failed</div>
