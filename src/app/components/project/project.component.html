@@ -1,25 +1,18 @@
-<!-- The project view -->
 <div id="wrapper">
-    <div class="project-header">
-        <!-- <div id="auto-block"> -->
-            <h2>{{projectName}}</h2>
-            <p>{{projectDescription}}</p>
-        <!-- </div> -->
-        <!-- <div id="creation-block"> -->
+    <div id="auto-block">
+        <h2>{{projectName}}</h2>
+        <p>{{projectDescription}}</p>
+        <form #inviteForm="ngForm" id="invitation-block">
             <h4 class='problem' *ngIf="invitationFailed">Invitation failed</h4>
             <!-- <label for="email">Invite User</label> -->
-            <div>
-                <input id="email" type="text" placeholder="Enter invitee's email" [(ngModel)]=invitedUserEmail>
-                <button (click)="inviteUser()">Send Invitation</button>
-            </div>
-            
-            <div id="story-maker">
-                <button (click)="openNewStory(content)">New Story</button>
-            </div>
-        <!-- </div> -->
+            <input id="email" type="text" placeholder="Enter invitee's email" [(ngModel)]=invitedUserEmail>
+            <button (click)="inviteUser(); inviteForm.reset()">Send Invitation</button>
+        </form>
+        <div id="story-maker">
+            <app-create-story></app-create-story>
+            <!-- <button (click)="openNewStory(content)">New Story</button> -->
+        </div>
     </div>
-
-
 
     <div class="container">
         <div class="row story-holder">
