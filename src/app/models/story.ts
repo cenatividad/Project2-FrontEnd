@@ -1,3 +1,6 @@
+/**
+ * Model for stories
+ */
 export class Story {
     storyID: number;
     storyName: string;

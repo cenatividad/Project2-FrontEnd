@@ -3,6 +3,9 @@ import { LoginService } from 'src/app/services/login.service';
 import { SessionService } from 'src/app/services/sessions.service';
 import { NavigationService } from 'src/app/services/navigation.service';
 
+/**
+ * Component for login. Presents the user with a form with the necessary input fields
+ */
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

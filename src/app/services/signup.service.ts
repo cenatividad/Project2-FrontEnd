@@ -4,6 +4,9 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
+/**
+ * Service to handle business logic related to the sign up process.
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -12,7 +15,9 @@ export class SignupService {
   constructor(private httpClient: HttpClient) { }
   signupURI: string = 'users';
 
-  // Change the user, return an observable and have the component subscribe to it.
+  /**
+   * Change the user, return an observable and have the component subscribe to it.
+   */
   signup(user: User): Observable<Object>{
     // send stuff to server, it returns an observable  
     console.log("Signup Service: Signing up " + user);
@@ -20,12 +25,16 @@ export class SignupService {
     return obs;
   }
 
-  // Verifies that the passwords match.
+  /**
+   * Verifies that the passwords match.
+   */
   checkPasswords(password: string, passwordVerification: string): boolean {
     return password === passwordVerification;
   }
 
-  // Checks username for not being null/undefined or empty
+  /**
+   * Checks username for not being null/undefined or empty
+   */
   usernameOK(username: string): boolean{
     if(username && username !== ''){
       return true;
@@ -34,7 +43,9 @@ export class SignupService {
     }
   }
 
-  // Checks password for not being null/undefined or empty
+  /**
+   * Checks password for not being null/undefined or empty
+   */
   passwordOK(password: string, passwordVerification: string): boolean{
     if(password && password !== '' && this.checkPasswords(password, passwordVerification)){
       return true;
@@ -43,7 +54,9 @@ export class SignupService {
     }
   }
 
-  // Checks password for not being null/undefined or empty
+  /**
+   * Checks name for not being null/undefined or empty
+   */
   emailOK(email: string): boolean{
     email = email || '';
 
@@ -54,7 +67,9 @@ export class SignupService {
     }
   }
 
-  // Checks password for not being null/undefined or empty
+  /**
+   * Checks first name for not being null/undefined or empty
+   */
   nameOK(firstName: string, lastName: string): boolean{
     firstName = firstName || '';
     lastName = lastName || '';
@@ -66,7 +81,9 @@ export class SignupService {
     }
   }
 
-  // Verifies that the passed inputs are correct in some way.
+  /**
+   * Verifies that the passed inputs are correct.
+   */
   checkInput(username: string, password: string, passwordVerification: string, email: string,
     firstName: string, lastName: string): boolean{
       return(this.usernameOK(username) && this.passwordOK(password, passwordVerification) &&

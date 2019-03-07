@@ -6,6 +6,9 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
+/**
+ * Service to handle login business logic
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -16,8 +19,10 @@ export class LoginService {
               private httpClient: HttpClient) { }
 
 
-  // Performs the login service. Requests the server for authentication and proceeds with logic based on success
-  // or failure.
+  /**  
+   * Performs the login service. Requests the server for authentication and proceeds with logic based on success
+   * or failure.
+   */
   doLogin(username: string, password: string): Observable<User> {
     console.log('LoginService: Logging in ' + username + ' ' + password);
 
@@ -27,7 +32,9 @@ export class LoginService {
     return this.httpClient.post<User>(environment.APIbase + this.loginURI, user);
   }
 
-  // Checks username for not being null/undefined or empty
+  /**
+   * Checks username for not being null/undefined or empty
+   */
   usernameOK(username: string): boolean {
     if (username && username !== '') {
       return true;
@@ -36,7 +43,9 @@ export class LoginService {
     }
   }
 
-  // Checks password for not being null/undefined or empty
+  /**
+   * Checks password for not being null/undefined or empty
+   */
   passwordOK(password: string): boolean {
     if (password && password !== '') {
       return true;
@@ -45,7 +54,9 @@ export class LoginService {
     }
   }
 
-  // Verifies that the passed inputs are correct in some way.
+  /**
+   * Verifies that the passed inputs are correct in some way.
+   */
   checkInput(username: string, password: string): boolean {
     return (this.usernameOK(username) && this.passwordOK(password));
   }

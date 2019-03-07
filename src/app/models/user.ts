@@ -1,6 +1,8 @@
 import { Project } from './project';
 
-// Holds user information
+/**
+ * Model for users
+ */
 export class User {
     id: number;
     email: string;

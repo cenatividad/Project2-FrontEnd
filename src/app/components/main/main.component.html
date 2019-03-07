@@ -1,3 +1,4 @@
+<!-- A navigational bar showing some options for users -->
 <nav class="navbar">
     <div class="navbar-header">
       <a class="navbar-brand">Yamcha's Dojo</a>
@@ -10,7 +11,7 @@
     </ul>
 </nav>
 
-
+<!-- A sidebar that shows an up-to-date, simple list of projects associated with the current user -->
 <div class="col-3 col-md-2">
   <ul class="sidebar">
     <li class="sidebar-header">Active Projects</li>
@@ -21,6 +22,8 @@
     </ul>
   </ul>
 </div>
+
+<!-- The sub-view, to which we route based on the user's navigational choices -->
 <div class="project-view">
   <router-outlet></router-outlet>
 </div>

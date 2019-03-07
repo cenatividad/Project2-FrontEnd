@@ -3,7 +3,9 @@ import { SessionService } from 'src/app/services/sessions.service';
 import { Router } from '@angular/router';
 import { NavigationService } from 'src/app/services/navigation.service';
 
-// This is a wrapper component for both the login and signup componets
+/**
+ * Wrapper component that holds both login and signup components. 
+ */
 @Component({
   selector: 'app-signup-login',
   templateUrl: './signup-login.component.html',
