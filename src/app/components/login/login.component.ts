@@ -27,6 +27,8 @@ export class LoginComponent implements OnInit {
    * Calls the login service to validate user
    */
   login() {
+    if(!this.checkInput()) return;
+    
     this.loginService.doLogin(this.username, this.password).subscribe((payload) => {
       this.sessionService.setActiveUser(payload);
       this.navigationService.navToUserProjects();
