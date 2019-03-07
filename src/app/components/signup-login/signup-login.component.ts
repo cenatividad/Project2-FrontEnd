@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { NavigationService } from 'src/app/services/navigation.service';
 
 /**
- * Wrapper component that holds both login and signup components. 
+ * Wrapper component that holds both login and signup components.
  */
 @Component({
   selector: 'app-signup-login',
@@ -16,7 +16,7 @@ export class SignupLoginComponent implements OnInit {
   constructor(private sessionService: SessionService, private navigationService: NavigationService) { }
 
   ngOnInit() {
-    if (this.sessionService.getActiveUser()){
+    if (this.sessionService.getActiveUser()) {
       this.navigationService.navToMain();
     }
   }
