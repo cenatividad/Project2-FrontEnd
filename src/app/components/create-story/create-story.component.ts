@@ -21,6 +21,11 @@ export class CreateStoryComponent implements OnInit {
     this.reset();
   }
 
+  // checkInput(): boolean {
+  //   const output = if(this.storyName.length > 0) {};
+  //   return output;
+
+  // }
   /**
    * Calls the story service to request the story creation. If a proper response is received, the story is sent
    * to the project service for storage.

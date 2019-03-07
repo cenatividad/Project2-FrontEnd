@@ -8,6 +8,11 @@
 
 }
 
+button {
+    margin: 2px;
+    align-self: flex-end;
+}
+
 .project-header {
     display: flex;
     flex-direction: row;
