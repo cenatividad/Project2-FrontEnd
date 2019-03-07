@@ -6,15 +6,21 @@
 }
 
 .invite {
-    height: 200px;
-    width: 300px;
+    height: 120px;
+    width: 250px;
     margin: 10px;
     box-shadow: -2px 2px #004444;
     background: #00aaaa;
     border-radius: 5px;
     padding: 5px;
     display: flex;
+    flex-direction: row;
+}
+
+.button-stack {
+    display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 .invite:hover{
@@ -22,7 +28,9 @@
 }
 
 h3 {
-    border-bottom: 1px solid #007777;
+    border-right: 1px solid #007777;
+    height: 110px;
+    width: 240px;
     padding: 2px;
     margin: 5px;
 }

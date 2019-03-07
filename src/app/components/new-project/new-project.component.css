@@ -2,13 +2,13 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: teal;
-    margin: 10px 40%;
-    border: 5px solid darkgreen;
+    background:  #00aaaa;
+    margin: 20px 40%;
+    /* border: 5px solid darkgreen; */
     border-radius: 5px;
-    padding: 5px;
-    width: 20vw;
-    height: 20vh;
+    padding: 20px;
+    /* width: 30vw;
+    height: 30vh; */
     color: white;
 }
 

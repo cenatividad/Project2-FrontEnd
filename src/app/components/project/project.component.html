@@ -4,14 +4,15 @@
         <p>{{projectDescription}}</p>
         <div id="invitation-block">
             <h4 class='problem' *ngIf="invitationFailed">Invitation failed</h4>
-            <label for="email">Invite User</label>
+            <!-- <label for="email">Invite User</label> -->
             <input id="email" type="text" placeholder="Enter invitee's email" [(ngModel)]=invitedUserEmail>
-            <button (click)="inviteUser()">Send Invitations</button>
+            <button (click)="inviteUser()">Send Invitation</button>
+        </div>
+        <div id="story-maker">
+            <button (click)="openNewStory(content)">New Story</button>
         </div>
     </div>
-    <div id="story-maker">
-        <button (click)="openNewStory(content)">New Story</button>
-    </div>
+
     <div class="container">
         <div class="row story-holder">
             <div class="col status-column" *ngFor='let status of statusesToDisplay'>
@@ -23,16 +24,21 @@
     </div>
 </div>
 
-<ng-template #content let-modal>
-    <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">{{modalTitle}}</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <div class="modal-body">
-        <router-outlet></router-outlet>
-    </div>
-    <div class="modal-footer">
-    </div>
-</ng-template>
+<div class="story-maker">
+    <ng-template #content let-modal>
+
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">{{modalTitle}}</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <router-outlet></router-outlet>
+        </div>
+        <div class="modal-footer">
+        </div>
+
+
+    </ng-template>
+</div>

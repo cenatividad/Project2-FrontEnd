@@ -2,15 +2,26 @@
     display: flex;
     flex-direction: column;
     max-width: 60%;
-    margin: 0 20% 0;
+    margin: 10px 20% 0;
+    background: #00aaaa;
+    border-radius: 5px;
+    padding: 5px;
 }
 
 #auto-block {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background: teal;
+    /* background: teal; */
     color: white;
+    align-items: center;
+    padding: 5px;
+    
+}
+
+#invitation-block {
+    display: flex;
+    flex-direction: column;
 }
 
 .status-column {
@@ -26,14 +37,20 @@
 .story-holder {
     display: flex;
     flex-direction: row;
-    background: darkgreen;
-    padding: 10px;
+    /* background: darkgreen; */
+    padding: 5px;
     /* border: 5px solid gold; */
     min-width: 95%;
     border-radius: 5px;
     justify-content: space-between;
+    margin: 10px;
 }
 
 .status-title {
     text-align: center;
+}
+
+.story-maker{
+    height: 200px;
+    width: 300px;
 }
