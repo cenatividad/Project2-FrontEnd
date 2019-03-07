@@ -1,6 +1,13 @@
 <h2>Signup</h2>
 
-<form class="data-form">
+<div *ngIf="signupStatus=='success'" class="alert alert-success" role="alert">
+    Signup Successful
+  </div>
+  <div *ngIf="signupStatus=='failure'" class="alert alert-danger" role="alert">
+    Signup Failed
+  </div>
+
+<form #signupForm="ngForm" class="data-form">
   <div class="form-column">
     <div class="form-group">
       <label for="signup-username">Username</label>
@@ -28,6 +35,6 @@
       <label for="signup-last-name">Last Name</label>
       <input id="signup-last-name" type="text" [(ngModel)]="lastName" name="last-name">
     </div>
-    <button class="btn btn-primary" (click)="signup()" [disabled]="!checkInputs()">Signup</button>
+    <button class="btn btn-primary" (click)="signup(); signupForm.reset()" [disabled]="!checkInputs()">Signup</button>
   </div>
 </form>
