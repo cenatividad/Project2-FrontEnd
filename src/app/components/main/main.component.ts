@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from 'src/app/services/sessions.service';
 import { NavigationService } from 'src/app/services/navigation.service';
+import { UserService } from 'src/app/services/user.service';
 
 /**
  * Main component that wraps around all views except the login, which routes to it.
@@ -15,13 +16,28 @@ export class MainComponent implements OnInit {
   /**
    * Requests a list of projects related to the active user from the session service.
    */
-  projects() {
-    return this.sessionService.getActiveUserProjects();
-  }
 
-  constructor(private sessionService: SessionService, private navigationService: NavigationService) { }
+  user = this.sessionService.getActiveUser();
+
+  projects = [];
+
+  // projects() {
+  //   this.userService.getUserProjects(this.user.id).subscribe((payload) => {
+  //     this
+  //     return payload;
+  //   }, (err) => {
+  //     console.log(err);
+  //   });
+  // }
+
+  constructor(private sessionService: SessionService, private navigationService: NavigationService, private userService: UserService) { }
 
   ngOnInit() {
+    this.userService.getUserProjects(this.user.id).subscribe((payload) => {
+      this.projects = payload;
+    }, (err) => {
+      console.log(err);
+    });
   }
 
   /**

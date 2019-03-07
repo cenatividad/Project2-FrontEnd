@@ -32,17 +32,21 @@
     </div>
 </div>
 
-<!-- Definition of the modal used for story creation, it's body is determined by the component we route with -->
-<ng-template #content let-modal>
-    <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">{{modalTitle}}</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <div class="modal-body">
-        <router-outlet></router-outlet>
-    </div>
-    <div class="modal-footer">
-    </div>
-</ng-template>
+<!-- <div class="story-maker">
+    <ng-template #content let-modal>
+
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">{{modalTitle}}</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <router-outlet></router-outlet>
+        </div>
+        <div class="modal-footer">
+        </div>
+
+
+    </ng-template>
+</div> -->

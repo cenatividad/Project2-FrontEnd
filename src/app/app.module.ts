@@ -30,6 +30,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { APP_BASE_HREF } from '@angular/common';
 import { environment } from 'src/environments/environment';
+import { ProjectCardComponent } from './components/project-card/project-card.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { environment } from 'src/environments/environment';
     ProjectComponent,
     StoryCardComponent,
     StoryListComponent,
-    CreateStoryComponent
+    CreateStoryComponent,
+    ProjectCardComponent
   ],
   imports: [
     BrowserModule,

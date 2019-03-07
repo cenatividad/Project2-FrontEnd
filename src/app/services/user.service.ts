@@ -20,12 +20,8 @@ export class UserService {
 
   constructor(private httpClient: HttpClient) { }
 
-  /**
-   * Sends a get request to the server to retrieve a list of projects related to the specified user. Returns
-   * an observable of the request.
-   */
-  getUserProjects(id: number): Observable<Array<Project>> {
-    const obs = this.httpClient.get<Array<Project>>(this.getUserProjectsURI(id));
+  getUserProjects(id: number): Observable<any> {
+    const obs = this.httpClient.get(this.getUserProjectsURI(id));
     return obs;
   }
 }

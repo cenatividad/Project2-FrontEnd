@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit {
   username: string;
   password: string;
 
+  loginFailed = false;
+
   constructor(private loginService: LoginService, private sessionService: SessionService,
               private navigationService: NavigationService) { }
 
@@ -30,6 +32,7 @@ export class LoginComponent implements OnInit {
       this.navigationService.navToUserProjects();
     }, (error) => {
       console.log('LoginComponent: Login failed');
+      this.loginFailed = true;
     });
   }
 

@@ -1,18 +1,12 @@
 <!-- List of procedurally generated invitations -->
-<div>
-  <ol>
-    <li *ngFor="let invitation of invitations; let i = index">
-      <div>
-        <ul>
-          <li>
-            {{invitation.project.projectID}}
-          </li>
-          <li>
-            <button class="AcceptButton" (click)="processInvitation(i, true)">Accept</button>
-            <button class="DeclineButton" (click)="processInvitation(i, false)">Decline</button>
-          </li>
-        </ul>
-      </div>
-    </li>
-  </ol>
+<div class="invite-wrapper">
+    <div *ngFor="let invitation of invitations; let i = index" class="invite" >
+       <h3>
+          {{invitation.project.projectName}}
+       </h3>         
+          <div class="button-stack">
+            <button class="AcceptButton btn btn-success" (click)="processInvitation(i, true)">Accept</button>
+            <button class="DeclineButton btn btn-danger" (click)="processInvitation(i, false)">Decline</button>
+          </div>
+    </div>
 </div>

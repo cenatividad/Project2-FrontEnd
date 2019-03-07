@@ -18,6 +18,8 @@ export class SignupComponent implements OnInit {
   firstName: string;
   lastName: string;
 
+  signupStatus: string;
+
   constructor(private signupService: SignupService) { }
 
   ngOnInit() {
@@ -35,9 +37,11 @@ export class SignupComponent implements OnInit {
     user.lastName = this.lastName;
 
     this.signupService.signup(user).subscribe((payload) => {
-      console.log("Signup Component: user created");
+      console.log('Signup Component: user created');
+      this.signupStatus = 'success';
     }, (error) => {
       console.log("Signup component: user failed to be created");
+      this.signupStatus = 'failure';
     });
   }
 

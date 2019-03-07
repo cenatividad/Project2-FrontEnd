@@ -1,7 +1,10 @@
 <h2>Login</h2>
 
-<!-- Form for loggin in -->
-<form>
+<div *ngIf="loginFailed" class="alert alert-danger" role="alert">
+  Login Failed
+</div>
+
+<form class="data-form">
   <div class="form-group">
     <label for="login-username">Username</label>
     <input id="login-username" type="text" [(ngModel)]="username" name="username">

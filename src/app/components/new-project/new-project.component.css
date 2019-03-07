@@ -1,0 +1,19 @@
+.input-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background:  #00aaaa;
+    margin: 20px 40%;
+    /* border: 5px solid darkgreen; */
+    border-radius: 5px;
+    padding: 20px;
+    /* width: 30vw;
+    height: 30vh; */
+    color: white;
+}
+
+button {
+    width: 30%;
+    margin-top: 5px;
+    align-self: flex-end;
+}
