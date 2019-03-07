@@ -9,11 +9,6 @@
     list-style-type: none;
 }
 
-.sidebar-item:hover {
-    background: #662222;
-    color: gold;
-}
-
 nav {
     background: gold;
     display: flex;
