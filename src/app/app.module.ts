@@ -28,6 +28,7 @@ import { CreateStoryComponent } from './components/create-story/create-story.com
 import { StoryService } from './services/story.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ProjectCardComponent } from './components/project-card/project-card.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     ProjectComponent,
     StoryCardComponent,
     StoryListComponent,
-    CreateStoryComponent
+    CreateStoryComponent,
+    ProjectCardComponent
   ],
   imports: [
     BrowserModule,

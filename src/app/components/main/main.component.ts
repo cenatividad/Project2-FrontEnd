@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from 'src/app/services/sessions.service';
 import { NavigationService } from 'src/app/services/navigation.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-main',
@@ -9,13 +10,27 @@ import { NavigationService } from 'src/app/services/navigation.service';
 })
 export class MainComponent implements OnInit {
 
-  projects() {
-    return this.sessionService.getActiveUserProjects();
-  }
+  user = this.sessionService.getActiveUser();
 
-  constructor(private sessionService: SessionService, private navigationService: NavigationService) { }
+  projects = [];
+
+  // projects() {
+  //   this.userService.getUserProjects(this.user.id).subscribe((payload) => {
+  //     this
+  //     return payload;
+  //   }, (err) => {
+  //     console.log(err);
+  //   });
+  // }
+
+  constructor(private sessionService: SessionService, private navigationService: NavigationService, private userService: UserService) { }
 
   ngOnInit() {
+    this.userService.getUserProjects(this.user.id).subscribe((payload) => {
+      this.projects = payload;
+    }, (err) => {
+      console.log(err);
+    });
   }
 
   logout() {

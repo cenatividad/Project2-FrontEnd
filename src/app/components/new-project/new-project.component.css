@@ -1,0 +1,19 @@
+.input-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: teal;
+    margin: 10px 40%;
+    border: 5px solid darkgreen;
+    border-radius: 5px;
+    padding: 5px;
+    width: 20vw;
+    height: 20vh;
+    color: white;
+}
+
+button {
+    width: 30%;
+    margin-top: 5px;
+    align-self: flex-end;
+}
