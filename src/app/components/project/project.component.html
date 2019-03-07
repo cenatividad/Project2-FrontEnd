@@ -1,17 +1,25 @@
 <div id="wrapper">
-    <div id="auto-block">
-        <h2>{{projectName}}</h2>
-        <p>{{projectDescription}}</p>
-        <div id="invitation-block">
+    <div class="project-header">
+        <!-- <div id="auto-block"> -->
+            <h2>{{projectName}}</h2>
+            <p>{{projectDescription}}</p>
+        <!-- </div> -->
+        <!-- <div id="creation-block"> -->
             <h4 class='problem' *ngIf="invitationFailed">Invitation failed</h4>
-            <label for="email">Invite User</label>
-            <input id="email" type="text" placeholder="Enter invitee's email" [(ngModel)]=invitedUserEmail>
-            <button (click)="inviteUser()">Send Invitations</button>
-        </div>
+            <!-- <label for="email">Invite User</label> -->
+            <div>
+                <input id="email" type="text" placeholder="Enter invitee's email" [(ngModel)]=invitedUserEmail>
+                <button (click)="inviteUser()">Send Invitation</button>
+            </div>
+            
+            <div id="story-maker">
+                <button (click)="openNewStory(content)">New Story</button>
+            </div>
+        <!-- </div> -->
     </div>
-    <div id="story-maker">
-        <button (click)="openNewStory(content)">New Story</button>
-    </div>
+
+
+
     <div class="container">
         <div class="row story-holder">
             <div class="col status-column" *ngFor='let status of statusesToDisplay'>
